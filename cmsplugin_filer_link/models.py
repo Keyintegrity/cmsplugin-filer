@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -12,14 +9,14 @@ from filer.fields.file import FilerFileField
 
 from djangocms_attributes_field.fields import AttributesField
 
-
-DEFULT_LINK_STYLES = (
+DEFAULT_LINK_STYLES = (
     (" ", "Default"),
 )
 
-LINK_STYLES = getattr(settings, "FILER_LINK_STYLES", DEFULT_LINK_STYLES)
+LINK_STYLES = getattr(settings, "FILER_LINK_STYLES", DEFAULT_LINK_STYLES)
 
 EXCLUDED_KEYS = ['class', 'href', 'target', ]
+
 
 class FilerLinkPlugin(CMSPlugin):
     name = models.CharField(_('name'), max_length=255)
