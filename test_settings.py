@@ -1,16 +1,11 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 import os
 from tempfile import mkdtemp
-
 
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         # filer configuration
         'easy_thumbnails',
-        'mptt',
         'filer',
         'djangocms_text_ckeditor',
         # cmsplugin_filer configuration
@@ -51,14 +46,16 @@ HELPER_SETTINGS = {
     'FILE_UPLOAD_TEMP_DIR': mkdtemp(),
     'FILER_IMAGE_MODEL': 'filer.Image',
 }
+
 if os.environ.get('CUSTOM_IMAGE', False):
     HELPER_SETTINGS['FILER_IMAGE_MODEL'] = os.environ.get('CUSTOM_IMAGE', False)
     HELPER_SETTINGS['INSTALLED_APPS'].append('filer.test_utils.custom_image')
 
 
 def run():
-    from djangocms_helper import runner
+    from app_helper import runner
     runner.cms('cmsplugin_filer_file')
+
 
 if __name__ == "__main__":
     run()

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -14,6 +11,7 @@ from cmsplugin_filer_utils import FilerPluginManager
 from djangocms_attributes_field.fields import AttributesField
 
 from .conf import settings
+
 
 class FilerImage(CMSPlugin):
     LEFT = "left"

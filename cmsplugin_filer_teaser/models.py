@@ -6,6 +6,7 @@ from filer.fields.image import FilerImageField
 from .conf import settings
 from cmsplugin_filer_utils import FilerPluginManager
 
+
 class FilerTeaser(CMSPlugin):
     """
     A Teaser

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -55,7 +52,7 @@ class FilerFile(CMSPlugin):
         return ''
 
     def file_exists(self):
-        if self.file.file.name != None:
+        if self.file.file.name is not None:
             return self.file.file.storage.exists(self.file.file.name)
         return False
 
@@ -79,7 +76,7 @@ class FilerFile(CMSPlugin):
             # added if, because it raised attribute error when file wasnt defined
             return self.get_file_name()
         return "<empty>"
-    
+
     class Meta:
         app_label = 'cmsplugin_filer_file'
 
